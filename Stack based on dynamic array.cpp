@@ -14,6 +14,10 @@ public:
 		top = -1;
 		arr = new int[max_cap];
 	}
+	
+	~Stack(){
+		delete[]arr;
+	}
 	Stack(Stack& other) {
 		top = other.top;
 		arr = new int[max_cap];
