@@ -1,2 +1,2 @@
 # data-structures
-data structure's implementations
+Data structure's implementations
