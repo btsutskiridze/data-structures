@@ -10,11 +10,11 @@ private:
 		Node* next;
 		Node(int v = 0, Node* n = 0) :val(v), next(n) {}
 	};
-public:
-
 	Node* front;
 	Node* back;
 	int size;
+
+public:
 
 	CircularQueue() {
 		front = NULL;
