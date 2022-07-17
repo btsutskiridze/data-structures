@@ -106,7 +106,10 @@ public:
 		cout << endl;
 	}
 
-	
+	int heigh() {
+		return _findHeight(root);
+	}
+
 private: //PRIVATE helper FUNCTIONS
 
 	//Destructor recursively
@@ -305,6 +308,28 @@ private: //PRIVATE helper FUNCTIONS
 		}
 		return root;
 
+
+		//if (root == NULL)
+		//	return NULL;
+		//else if (item > root->data)
+		//	return _deleteNodeRecursively(root->right, item);
+		//else if (item < root->data)
+		//	return _deleteNodeRecursively(root->left, item);
+		//else {
+		//	if (root->left == NULL && root->right == NULL)
+		//		return NULL;
+		//	else if (root->right != NULL) {
+		//		root->data = _successor(root);
+		//		root->left = _deleteNodeRecursively(root->left, root->data);
+		//	}
+		//	else {
+		//		root->data = _predecessor(root);
+		//		root->left = _deleteNodeRecursively(root->right, root->data);
+		//	}
+		//}
+		//return root;
+	}
+
 	//Search Recursively
 	bool _recursiveSearch(BinNode* root, int item) {
 		if (root == nullptr)
@@ -352,5 +377,18 @@ private: //PRIVATE helper FUNCTIONS
 			return garbage;
 		}
 	}
+
+	//Find height of BST
+	int _findHeight(BinNode* root)
+	{
+		if (root == NULL)
+			return -1;
+
+		int leftHeight = _findHeight(root->left);
+		int rightHeight = _findHeight(root->right);
+
+		return max(leftHeight, rightHeight) + 1;
+	}
+
 
 };
