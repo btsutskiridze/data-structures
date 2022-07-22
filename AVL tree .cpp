@@ -169,31 +169,32 @@ private:// functions
 				root->right = deleteNode(root->right, temp->data);
 			}
 		}
-			root->height = max(height(root->left), height(root->right)) + 1; //update heigh;
+		
+		root->height = max(height(root->left), height(root->right)) + 1; //update heigh;
 
-			int bf = getBalanceFactor(root); //get balance factor of the current node
+		int bf = getBalanceFactor(root); //get balance factor of the current node
 
-			//LL imbalance
-			if (bf == 2 && getBalanceFactor(root->left) >= 0)
-				return rotateRight(root); //R-rotation
-			//LL imbalance
-			else if (bf == 2 && getBalanceFactor(root->left) == -1)
-			{
-				//LR-rotation
-				root->left = rotateLeft(root->left);
-				return rotateRight(root);
-			}
-			//RR imbalance
-			else if (bf == -2 && getBalanceFactor(root->right) <= 0)
-				return rotateLeft(root); //R-rotation
-			//RR imbalance
-			else if (bf == -2 && getBalanceFactor(root->right) == 1) {
-				//RL-rotation
-				root->right = rotateRight(root->right);
-				return rotateLeft(root);
-			}
+		//LL imbalance
+		if (bf == 2 && getBalanceFactor(root->left) >= 0)
+			return rotateRight(root); //R-rotation
+		//LL imbalance
+		else if (bf == 2 && getBalanceFactor(root->left) == -1)
+		{
+			//LR-rotation
+			root->left = rotateLeft(root->left);
+			return rotateRight(root);
+		}
+		//RR imbalance
+		else if (bf == -2 && getBalanceFactor(root->right) <= 0)
+			return rotateLeft(root); //R-rotation
+		//RR imbalance
+		else if (bf == -2 && getBalanceFactor(root->right) == 1) {
+			//RL-rotation
+			root->right = rotateRight(root->right);
+			return rotateLeft(root);
+		}
 
-			return root;
+		return root;
 
 	}
 
