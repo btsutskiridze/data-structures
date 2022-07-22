@@ -202,14 +202,12 @@ private:// functions
 	bool _searchNode(Node* root, int val) {
 		if (root == nullptr)
 			return false;
-		else if (val > root->data)
-			return _searchNode(root->right, val);
-		else if (val < root->data)
-			return _searchNode(root->left, val);
-		else if (val == root->data) {
+		else if (val == root->data)
 			return true;
-		}
-		return false;
+		else if (val > root->data)
+			_searchNode(root->right, val);
+		else if (val < root->data)
+			_searchNode(root->left, val);
 	}
 
 public:
